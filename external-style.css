@@ -1,0 +1,45 @@
+/* ---------------------media query------------------ */
+/* extra small screen <576 */
+@media screen and (max-width: 576px) {
+  .nav-link {
+    text-align: center;
+  }
+}
+
+/* small screen 576 */
+@media screen and (min-width: 576px) {
+  .nav-link {
+    text-align: center;
+  }
+}
+
+/* medium screen 768 */
+@media screen and (min-width: 768px) {
+}
+
+/* large screen 992 */
+@media screen and (min-width: 992px) {
+}
+/* -------------------navbar------------------------- */
+/* size and postion of logo */
+#logo {
+  width: 120px;
+  margin-left: 15px;
+}
+
+.nav-link {
+  color: #f1f5f6 !important;
+  font-family: playfair;
+  font-size: larger;
+}
+
+/* nav-link hover effect */
+a:hover {
+  color: #e35640 !important;
+}
+
+/* target nav-link alignment */
+.navbar-nav .nav-item {
+  padding-left: 30px;
+  padding-right: 30px;
+}

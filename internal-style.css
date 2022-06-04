@@ -1,0 +1,18 @@
+/* font pairing from google fonts */
+@font-face {
+  font-family: playfair;
+  src: url(fonts/PlayfairDisplay-Regular.ttf);
+  font-family: sourceSans;
+  src: url(fonts/SourceSansPro-Regular.ttf);
+}
+
+/* overwrite bootstrap color */
+.bg-dark {
+  background: linear-gradient(
+    to right,
+    #000000,
+    #161616cc,
+    #1e1e1e6b,
+    #26262630
+  );
+}
