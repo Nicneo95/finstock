@@ -16,3 +16,14 @@
     #26262630
   );
 }
+
+/* changing body font */
+body {
+  font-family: sourceSans;
+  color: #f1f5f6 !important;
+}
+
+/* h5 font */
+.h5, h5 {
+  font-family: playfair;
+}
