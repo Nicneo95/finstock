@@ -1,3 +1,21 @@
+/* setting the body of content */
+#page-container{
+    position:relative;
+    min-height: 100vh;
+}
+
+/* position of navbar */
+.navbar{
+    position: absolute;
+    top: 0px;
+}
+
+/* position of footer */
+.webFooter{
+    position: absolute;
+    bottom: 0px;
+}
+
 /* font pairing from google fonts */
 @font-face {
   font-family: playfair;
@@ -20,7 +38,7 @@
 /* changing body font */
 body {
   font-family: sourceSans;
-  color: #f1f5f6 !important;
+  color: #14afd6 !important;
 }
 
 /* h5 font */

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- internal css -->
+    <link href="internal-style.css" rel="stylesheet" />
+
+    <!-- external css -->
+    <link href="external-style.css" rel="stylesheet" />
+
+    <title>finstock | stock market</title>
+  </head>
+  <body>
+    <!-- body of content -->
+    <div id="page-container">
+      <!-- navbar -->
+      <nav
+        class="navbar fixed-top navbar-expand-lg navbar-expand-xl navbar-dark bg-dark"
+        class="container-fluid"
+      >
+        <div class="container-fluid">
+          <img id="logo" src="../images/logo.png" />
+          <!-- toggle collapse button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- nav-link -->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Stock Analysis</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Market Maps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+        <!-- stock-analysis page -->
+        <div style="margin-top: 56px">
+          <div class="container-fluid h-100 min-h">
+            <div class="row min-h">
+              <div class="col-lg-4 sidebar">
+                <div class="p-3">
+                  <h1 id="stockTicker"></h1>
+                  <p id="stockName"></p>
+                  <small id="stockDesc"></small>
+                  <hr />
+                  <!-- sidebar navigation button -->
+                  <div class="stock-list">
+                    <button id="stockAnalysisBtn">Stock Analysis</button>
+                    <button id="stockEarningsBtn">Earnings</button>
+                    <button id="stockFinancialsBtn">Financials</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8" id="stockContainer">
+                <!-- button to toggle financialsStockChart -->
+                <div id="analysisTimeOptions" class="mt-3">
+                  <button id="1D">1D</button>
+                  <button id="1W">1W</button>
+                  <button id="1M">1M</button>
+                </div>
+                <!-- dynamic line chart -->
+                <div id="financialsStockChart" class="mt-5 hidden"></div>
+                <!-- bar chart -->
+                <div id="analysisStockChart" class="mt-5 hidden"></div>
+                <!-- multi-axis line chart  -->
+                <div id="earningsStockChart" class="mt-5 hidden"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- webpage footer -->
+        <footer class="webFooter fixed-bottom bg-dark" class="container-fluid">
+          <div class="row pt-3">
+            <!-- research bar -->
+            <div class="col-2 offset-1">
+              <h5>Research Tools</h5>
+              <ul class="foot flex-column">
+                <a class="footLink" href="">Stock Analysis</a
+                ><br />
+                <a class="footLink" href="">Market Maps</a
+                ><br />
+                <a class="footLink" href="">Stock Screener</a
+                ><br />
+                <a class="footLink" href="">Insiders' Hot Stocks</a
+                ><br />
+                <a class="footLink" href="">Expert Center</a>
+              </ul>
+            </div>
+            <!-- education bar -->
+            <div class="col-2">
+              <h5>Education</h5>
+              <div class="foot flex-column">
+                <a class="footLink" href="">Market News</a><br />
+                <a class="footLink" href="">Glossary</a><br />
+                <a class="footLink" href="">Education Center</a>
+              </div>
+            </div>
+            <!-- company bar -->
+            <div class="col-2">
+              <h5>Company</h5>
+              <ul class="foot flex-column">
+                <a class="footLink" href="">About finstock</a
+                ><br />
+                <a class="footLink" href="">Contact Us</a
+                ><br />
+                <a class="footLink" href="">Reviews</a
+                ><br />
+                <a class="footLink" href="">Jobs</a>
+              </ul>
+            </div>
+            <!-- subscribe bar -->
+            <div class="col-4 offset-1">
+              <form>
+                <h5>NEWSLETTER SUBSCRIPTION</h5>
+                <p class="footText">
+                  Monthly digest of whats new and exciting from us.
+                </p>
+                <div class="subBlock w-100 gap-2" style="padding-right: 20px">
+                  <input
+                    id="newsletter1"
+                    type="text"
+                    class="form-control"
+                    placeholder="Email Address"
+                  />
+                  <button class="btn btn-primary btnSub" type="button">
+                    SIGN UP
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- copyright -->
+            <div class="col-4 offset-1 copyrightText">
+              <p class="footText">© 2022 Company, Inc. All rights reserved.</p>
+            </div>
+            <!-- social link -->
+            <div class="col-4 offset-3 socialLink d-flex">
+              <a
+                class="footer-social-link"
+                href="https://www.facebook.com/"
+                target="_blank"
+                ><i
+                  class="fa-brands fa-facebook-f"
+                  style="padding-left: 0px"
+                ></i
+              ></a>
+              <a
+                class="footer-social-link"
+                href="https://www.twitter.com/"
+                target="_blank"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                class="footer-social-link"
+                href="https://www.linkedin.com/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </footer>
+
+        <!-- moment  -->
+        <script src="moment.js"></script>
+        <!-- apex chart-->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <!-- axios -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+          integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+        <!-- stock-analysis page -->
+        <script src="stock-analysis.js"></script>
+        <!-- Bootstrap Bundle with Popper -->
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"
+        ></script>
+      </div>
+    </div>
+  </body>
+</html>

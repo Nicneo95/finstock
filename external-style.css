@@ -59,6 +59,7 @@
 /* large screen 992 */
 @media screen and (min-width: 992px) {
 }
+
 /* -------------------navbar--------------------- */
 /* size and postion of logo */
 #logo {
@@ -82,6 +83,30 @@ a:hover {
   padding-left: 30px;
   padding-right: 30px;
 }
+
+/* -------------------home page------------------ */
+/* home background image */
+#home-background{
+    background-image: url('images/home-background.jpeg');
+    background-size: cover;
+    height: 100vh ;
+    width: auto;
+    overflow: hidden;   
+}
+
+.search-overlay{
+    background-color: #313946;
+    overflow: hidden;
+    height: 100vh;
+    opacity: 90%;
+}
+
+/* align search bar center */
+.searchContainer{
+  height: 200px;
+  justify-content: center;
+}
+
 /* ------------------footer---------------------- */
 /* alignment of social link */
 .fa-brands {
@@ -122,4 +147,37 @@ a:hover {
   color: #f1f5f6;
   background-color: #313946;
   border-color: #313946;
+}
+/* ---------------stock-analysis page------------------ */
+.sidebar {
+  background-color: #929292;
+}
+
+.min-h {
+  min-height: 100vh;
+}
+
+/* buttons for different charts  */
+.stock-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* hide all charts */
+.hidden {
+  display: none;
+}
+
+.arrow_box {
+  padding: 10px;
+  color: black;
+}
+
+.arrow_box h5 {
+  font-weight: bold;
+}
+
+.selected-btn {
+  background-color: black;
+  color: white;
 }
