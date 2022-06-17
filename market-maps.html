@@ -60,22 +60,43 @@
               <a class="nav-link" href="#">Stock Analysis</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Market Maps</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">News</a>
+              <a class="nav-link" href="market-maps.html">Market Maps</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="chart mt-5">
-      <h1>My first Tableau Dashboard in the browser</h1>
+    <!-- market map page -->
+    <div style="margin-top: 56px">
+      <div class="container-fluid h-100 min-h">
+        <div class="row min-h">
+          <div class="col-lg-4 sidebar">
+            <div class="p-3">
+              <!-- sidebar navigation button -->
+              <div class="stock-list">
+                <button id="australiaBtn">Australia</button>
+                <button id="canadaBtn">Canada</button>
+                <button id="chinaBtn">China</button>
+                <button id="irelandBtn">Ireland</button>
+                <button id="japanBtn">Japan</button>
+                <button id="singaporeBtn">Singapore</button>
+                <button id="unitedkingdomBtn">United Kingdom</button>
+                <button id="unitedstateBtn">United State</button>
+                <button id="worldBtn">World</button>
+              </div>
+            </div>
+          </div>
+          <!-- treeMap chart -->
+          <div class="col-lg-8" id="stockContainer">
+            <div class="treeMap mt-3">
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- webpage footer -->
     <footer class="webFooter fixed-bottom bg-dark" class="container-fluid">
-      <div class="row pt-3">
+      <div class="row pt-3" style="margin-right: 0px; margin-top: 30px">
         <!-- research bar -->
         <div class="col-2 offset-1">
           <h5>Research Tools</h5>
@@ -166,7 +187,7 @@
       src="https://public.tableau.com/javascripts/api/tableau-2.min.js"
     ></script>
     <!-- Optional JavaScript; choose one of the two! -->
-    <script src="script.js"></script>
+    <script src="market-map.js"></script>
     <!-- Bootstrap Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

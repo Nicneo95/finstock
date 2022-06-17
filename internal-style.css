@@ -1,6 +1,5 @@
 /* setting the body of content */
 #page-container{
-    position:relative;
     min-height: 100vh;
 }
 
@@ -12,8 +11,9 @@
 
 /* position of footer */
 .webFooter{
-    position: absolute;
-    bottom: 0px;
+    position: relative;
+    margin-top: -90px ;
+    clear: both;
 }
 
 /* font pairing from google fonts */
@@ -38,10 +38,31 @@
 /* changing body font */
 body {
   font-family: sourceSans;
-  color: #14afd6 !important;
+  color: #313946 !important;
+}
+
+/* h1 font */
+.h1, h1{
+  font-family: playfair;
 }
 
 /* h5 font */
 .h5, h5 {
   font-family: playfair;
+  color: #f1f5f6;
+}
+
+/* overwrite radio button */
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #e35460;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
 }

@@ -54,10 +54,29 @@
   .btnSub {
     margin-top: 0px;
   }
+  /* tree map chart */
+  .treeMap{
+    height: 400px;
+    width: auto;
+  }
 }
 
 /* large screen 992 */
 @media screen and (min-width: 992px) {
+  /* tree map chart */
+  .treeMap{
+    height: 600px;
+    width: auto;
+  }
+}
+
+/* large screen 992 */
+@media screen and (min-width: 1200px) {
+  /* tree map chart */
+  .treeMap{
+    height: 730px;
+    width: auto;
+  }
 }
 
 /* -------------------navbar--------------------- */
@@ -91,20 +110,20 @@ a:hover {
     background-size: cover;
     height: 100vh ;
     width: auto;
-    overflow: hidden;   
 }
 
 .search-overlay{
     background-color: #313946;
-    overflow: hidden;
     height: 100vh;
     opacity: 90%;
 }
 
 /* align search bar center */
 .searchContainer{
-  height: 200px;
-  justify-content: center;
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding-top: 600px;
 }
 
 /* ------------------footer---------------------- */
@@ -148,8 +167,10 @@ a:hover {
   background-color: #313946;
   border-color: #313946;
 }
+
 /* ---------------stock-analysis page------------------ */
 .sidebar {
+  height: 100vh;
   background-color: #929292;
 }
 
@@ -161,6 +182,11 @@ a:hover {
 .stock-list {
   display: flex;
   flex-direction: column;
+}
+
+/* change sidebar color text */
+#stockName, #stockDesc, #stockTicker {
+color: #f1f5f6 !important;
 }
 
 /* hide all charts */
@@ -179,5 +205,5 @@ a:hover {
 
 .selected-btn {
   background-color: black;
-  color: white;
+  color: #f1f5f6;
 }

@@ -62,10 +62,7 @@
                 <a class="nav-link" href="#">Stock Analysis</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Market Maps</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">News</a>
+                <a class="nav-link" href="market-maps.html">Market Maps</a>
               </li>
             </ul>
           </div>
@@ -89,12 +86,15 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-8" id="stockContainer">
+              <div class="col-lg-8" id="stockContainer" style="height: 100vh;">
                 <!-- button to toggle financialsStockChart -->
                 <div id="analysisTimeOptions" class="mt-3">
-                  <button id="1D">1D</button>
-                  <button id="1W">1W</button>
-                  <button id="1M">1M</button>
+                  <input type="radio" id="1D" name="timeBtn">
+                  <label class="timeBtn">1D</label>
+                  <input type="radio" id="1W" name="timeBtn">
+                  <label class="timeBtn">1W</label>
+                  <input type="radio" id="1M" name="timeBtn">
+                  <label class="timeBtn">1M</label>
                 </div>
                 <!-- dynamic line chart -->
                 <div id="financialsStockChart" class="mt-5 hidden"></div>
@@ -106,10 +106,9 @@
             </div>
           </div>
         </div>
-
         <!-- webpage footer -->
         <footer class="webFooter fixed-bottom bg-dark" class="container-fluid">
-          <div class="row pt-3">
+          <div class="row pt-3" style="margin-right: 0px; margin-top: 30px">
             <!-- research bar -->
             <div class="col-2 offset-1">
               <h5>Research Tools</h5>
@@ -217,7 +216,6 @@
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"
         ></script>
-      </div>
     </div>
   </body>
 </html>
