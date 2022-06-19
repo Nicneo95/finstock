@@ -338,6 +338,16 @@ stockFinancialsBtn.addEventListener("click", function (e) {
     })
     .catch((e) => {});
 });
+// function when the earning button is click
+stockEarningsBtn.addEventListener("click", function (e) {
+  fetchResults(
+    `https://www.alphavantage.co/query?function=EARNINGS&symbol=${stock}&apikey=${apiKey}`
+  )
+    .then((results) => {
+      showEarningsChart(results);
+    })
+    .catch((e) => {});
+});
 
 // input information of company selected into sidebar
 function showSidebar(results) {
