@@ -13,15 +13,15 @@
     margin-top: 10px;
   }
   /* social link */
-  .socialLink{
+  .socialLink {
     margin-left: 180px;
     margin-right: 300px;
     margin-bottom: 16px;
   }
   /* copyright text alignment */
-  .copyrightText{
-      margin-left: 180px;
-      text-align: center;
+  .copyrightText {
+    margin-left: 180px;
+    text-align: center;
   }
 }
 
@@ -55,7 +55,7 @@
     margin-top: 0px;
   }
   /* tree map chart */
-  .treeMap{
+  .treeMap {
     height: 400px;
     width: auto;
   }
@@ -64,7 +64,7 @@
 /* large screen 992 */
 @media screen and (min-width: 992px) {
   /* tree map chart */
-  .treeMap{
+  .treeMap {
     height: 600px;
     width: auto;
   }
@@ -73,7 +73,7 @@
 /* large screen 992 */
 @media screen and (min-width: 1200px) {
   /* tree map chart */
-  .treeMap{
+  .treeMap {
     height: 730px;
     width: auto;
   }
@@ -105,25 +105,141 @@ a:hover {
 
 /* -------------------home page------------------ */
 /* home background image */
-#home-background{
-    background-image: url('images/home-background.jpeg');
-    background-size: cover;
-    height: 100vh ;
-    width: auto;
+#home-background {
+  background: linear-gradient(
+      to right,
+      rgba(49, 57, 70, 0.9),
+      rgba(49, 57, 70, 0.9)
+    ),
+    url("images/home-background.jpeg");
+  background-size: cover;
+  min-height: 100vh;
+  width: auto;
+  overflow: hidden;
+  margin-top: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.search-overlay{
-    background-color: #313946;
-    height: 100vh;
-    opacity: 90%;
+.inner-text {
+  animation-name: slide-in;
+  opacity: 0;
+  animation-duration: 6s;
+  transform: translate3d(-100%, 0, 0);
+  animation-timing-function: ease;
+  color: #e35640;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: baseline;
+  text-align: left;
+  position: absolute;
+  left: 50%;
+  font-size: 0.9em;
+  padding-top: 3px;
+  padding-left: 3px;
+}
+
+.inner-span {
+  /* prevent line break */
+  white-space: nowrap;
+}
+
+.inner-span::after {
+  display: block;
+  animation-duration: 6s;
+  animation-name: underline;
+  animation-timing-function: ease;
+  content: "";
+  width: 0;
+  background-color: #199ca5;
+  height: 4px;
+}
+
+.fixed-text {
+  z-index: 1;
+  background-color: inherit;
+  text-align: right;
+  white-space: nowrap;
+  right: 50%;
+  position: absolute;
+  background-color: rgba(49, 57, 70, 0.9);
+}
+
+.overall {
+  font-weight: 400;
+  width: 100%;
+  transition: flex 0.3s ease-out;
+  flex-direction: row;
+  font-size: 2.85rem;
+  line-height: 1.2;
+  position: relative;
+  height: 100px;
+  display: flex;
+  width: 900px;
+  position: relative;
+}
+
+.stock-search {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  min-width: 350px;
+}
+
+.searchContainer button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.searchContainer button:hover {
+  color: #e35640;
+}
+
+@keyframes underline {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 0;
+  }
+  90% {
+    width: 100%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translate3d(-100%, 0, 0.5);
+    opacity: 0;
+  }
+  25% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  90% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(50%, 0, 0);
+    opacity: 0;
+  }
 }
 
 /* align search bar center */
-.searchContainer{
-  margin: auto;
-  width: 60%;
-  border: 3px solid #73AD21;
-  padding-top: 600px;
+.searchContainer {
+  justify-content: center;
 }
 
 /* ------------------footer---------------------- */
@@ -185,8 +301,10 @@ a:hover {
 }
 
 /* change sidebar color text */
-#stockName, #stockDesc, #stockTicker {
-color: #f1f5f6 !important;
+#stockName,
+#stockDesc,
+#stockTicker {
+  color: #f1f5f6 !important;
 }
 
 /* hide all charts */
@@ -207,3 +325,5 @@ color: #f1f5f6 !important;
   background-color: black;
   color: #f1f5f6;
 }
+
+/* ---------------market map page------------------ */

@@ -4,11 +4,13 @@ const apiKey = "IA2UTE9ALTXD6IAL";
 // declaring variables
 let stock;
 let financialsStockChartDiv;
-let analysisStockChartDiv;
+let analysisStockChartAreaDiv;
+let analysisStockChartLineDiv;
 let analysisTimeOptionsDiv;
 let earningsStockChartDiv;
 let financialsStockChart;
-let analysisStockChart;
+let analysisStockChartArea;
+let analysisStockChartLine;
 let earningsStockChart;
 let analysisStockData = [];
 let financialsStockData = [];
@@ -16,32 +18,16 @@ let earningsStockData = [];
 let currentTab = "analysis";
 let currentTimeOption = "1D";
 
-// formatting and styling stock analysis chart
-let analysisOptions = {
+// formatting and styling stock analysis chart (price)
+let analysisOptionsArea = {
   series: [],
   chart: {
-    height: 480,
-    group: "analysisCompany",
-    type: "line",
+    id: "volume",
+    group: "stock",
     type: "area",
+    height: 260,
   },
-  dataLabels: {
-    enabled: false,
-  },
-  tooltip: {
-    custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-      return `<div class="arrow_box">
-        <h5>${moment(analysisStockData[dataPointIndex].time).format(
-          "MMM DD, YYYY, LT"
-        )}
-        </h5>
-        <p>High: ${analysisStockData[dataPointIndex].high}</p>
-        <p>Low: ${analysisStockData[dataPointIndex].low}</p>
-        <p>Close: ${analysisStockData[dataPointIndex].close}</p>
-        <p>Volume: ${analysisStockData[dataPointIndex].volume}</p>
-        </div>`;
-    },
-  },
+  colors: ["#00E396"],
   title: {
     text: "",
     align: "center",
@@ -52,41 +38,33 @@ let analysisOptions = {
       color: "#263238",
     },
   },
+  dataLabels: {
+    enabled: false,
+  },
+};
+
+// formatting and styling stock analysis chart (volume)
+let analysisOptionsLine = {
   series: [],
-  fill: {
-    type: "gradient",
-    gradient: {
-      shadeIntensity: 1,
-      opacityFrom: 0.7,
-      opacityTo: 0.9,
-      stops: [0, 90, 100],
+  chart: {
+    id: "price",
+    group: "stock",
+    type: "line",
+    height: 260,
+  },
+  colors: ["#008FFB"],
+  title: {
+    text: "",
+    align: "center",
+    style: {
+      fontSize: "20px",
+      fontWeight: "bold",
+      fontFamily: undefined,
+      color: "#263238",
     },
   },
-  xaxis: {
-    categories: [],
-    tickAmount: 10,
-    title: {
-      text: "Timestamp",
-      align: "center",
-      style: {
-        fontSize: "14px",
-        fontWeight: "bold",
-        fontFamily: undefined,
-        color: "#263238",
-      },
-    },
-  },
-  yaxis: {
-    title: {
-      text: "Price",
-      align: "center",
-      style: {
-        fontSize: "14px",
-        fontWeight: "bold",
-        fontFamily: undefined,
-        color: "#263238",
-      },
-    },
+  dataLabels: {
+    enabled: false,
   },
 };
 
@@ -177,10 +155,73 @@ let financialsOptions = {
   ],
 };
 
+// formatting and styling earning chart
+let earningsOptions = {
+  series: [],
+  chart: {
+    type: "bar",
+    height: 480,
+  },
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: "55%",
+      endingShape: "rounded",
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    show: true,
+    width: 2,
+    colors: ["transparent"],
+  },
+  title: {
+    text: "",
+    align: "center",
+    style: {
+      fontSize: "20px",
+      fontWeight: "bold",
+      fontFamily: undefined,
+      color: "#263238",
+    },
+  },
+  fill: {
+    opacity: 1,
+  },
+  tooltip: {
+    custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+      return `<div class="arrow_box">
+        <h5>${`Q${moment(earningsStockData[dataPointIndex].reportedDate)
+          .utc()
+          .quarter()} ${moment(
+          earningsStockData[dataPointIndex].reportedDate
+        ).format("DD MMM YYYY")}`}
+        </h5>
+        <p>Estimated EPS: ${earningsStockData[dataPointIndex].estimatedEPS}</p>
+        <p>Reported EPS: ${earningsStockData[dataPointIndex].reportedDate}</p>
+        </div>`;
+    },
+  },
+  xaxis: {
+    categories: [],
+    labels: {
+      formatter: function (val, timestamp) {
+        console.log(val, timestamp);
+        return `Q${moment(timestamp).utc().quarter()} ${moment(
+          timestamp
+        ).format("YYYY")}`;
+      },
+    },
+  },
+};
+
 let stockContainer = document.querySelector("#stockContainer");
 if (stockContainer) {
   financialsStockChartDiv = document.querySelector("#financialsStockChart");
-  analysisStockChartDiv = document.querySelector("#analysisStockChart");
+  analysisStockChartAreaDiv = document.querySelector("#analysisStockAreaChart");
+  analysisStockChartLineDiv = document.querySelector("#analysisStockLineChart");
   analysisTimeOptionsDiv = document.querySelector("#analysisTimeOptions");
   earningsStockChartDiv = document.querySelector("#earningsStockChart");
 
@@ -191,13 +232,25 @@ if (stockContainer) {
     `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stock}&apikey=${apiKey}`
   ).then((results) => {
     showSidebar(results);
-      
-      if (analysisStockChartDiv) {
-      analysisStockChart = new ApexCharts(
-        analysisStockChartDiv,
-        analysisOptions
+
+    if (financialsStockChartDiv) {
+      financialsStockChart = new ApexCharts(
+        financialsStockChartDiv,
+        financialsOptions
       );
-      analysisStockChart.render();
+      financialsStockChart.render();
+    }
+    if (analysisStockChartAreaDiv && analysisStockChartLineDiv) {
+      analysisStockChartArea = new ApexCharts(
+        analysisStockChartAreaDiv,
+        analysisOptionsArea
+      );
+      analysisStockChartArea.render();
+      analysisStockChartLine = new ApexCharts(
+        analysisStockChartLineDiv,
+        analysisOptionsLine
+      );
+      analysisStockChartLine.render();
       selectTimeOption("1D");
       fetchResults(
         `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock}&outputsize=full&apikey=${apiKey}`
@@ -207,12 +260,12 @@ if (stockContainer) {
         })
         .catch((e) => {});
     }
-    if (financialsStockChartDiv) {
-      financialsStockChart = new ApexCharts(
-        financialsStockChartDiv,
-        financialsOptions
+    if (earningsStockChartDiv) {
+      earningsStockChart = new ApexCharts(
+        earningsStockChartDiv,
+        earningsOptions
       );
-      financialsStockChart.render();
+      earningsStockChart.render();
     }
   });
 }
@@ -271,7 +324,6 @@ stockAnalysisBtn.addEventListener("click", function (e) {
   )
     .then((results) => {
       showAnalysisChart(results);
-      showAnalysisChart2(results);
     })
     .catch((e) => {});
 });
@@ -301,9 +353,10 @@ function showSidebar(results) {
 function showAnalysisChart(result) {
   currentTab = "analysis";
   showCurrentTab();
-  let categories = [];
-  let yValues = [];
-  // using ternary operator if...else
+
+  let prices = [];
+  let volumes = [];
+  // ternary operator if..else..
   let key =
     currentTimeOption == "1D"
       ? "Time Series (Daily)"
@@ -317,9 +370,10 @@ function showAnalysisChart(result) {
       ? "Weekly"
       : "Monthly";
   Object.entries(result[key])
-    .slice(0, 200)
+    .slice(0, 150)
+    // sort the date of the data
+    .sort((a, b) => (a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0))
     .forEach((data) => {
-      categories.push(data[0]);
       analysisStockData.push({
         high: data[1]["2. high"],
         low: data[1]["3. low"],
@@ -327,13 +381,20 @@ function showAnalysisChart(result) {
         volume: data[1]["5. volume"],
         time: data[0],
       });
-      yValues.push(+data[1]["4. close"]);
+      prices.push([new Date(data[0]).getTime(), +data[1]["4. close"]]);
+      volumes.push([new Date(data[0]).getTime(), +data[1]["5. volume"]]);
     });
 
-  analysisStockChart.updateSeries([
+  analysisStockChartLine.updateSeries([
     {
       name: `${titleKey} Prices of ${stock}`,
-      data: yValues,
+      data: prices,
+    },
+  ]);
+  analysisStockChartArea.updateSeries([
+    {
+      name: `${titleKey} Volume of ${stock}`,
+      data: volumes,
     },
   ]);
   let extraOptions = {
@@ -360,15 +421,17 @@ function showAnalysisChart(result) {
       },
     };
   }
-  analysisStockChart.updateOptions({
+  analysisStockChartArea.updateOptions({
     xaxis: {
-      ...analysisOptions.xaxis,
-      categories,
+      // spread of the date
+      tickAmount: 10,
       ...extraOptions,
     },
-    title: {
-      ...analysisOptions.title,
-      text: `${titleKey} Prices of ${stock.toUpperCase()}`,
+  });
+  analysisStockChartLine.updateOptions({
+    xaxis: {
+      tickAmount: 10,
+      ...extraOptions,
     },
   });
 }
@@ -425,6 +488,48 @@ function showFinancialsChart(result) {
   });
 }
 
+// data massaging for earning chart
+function showEarningsChart(result) {
+  currentTab = "earnings";
+  showCurrentTab();
+
+  let reportedEPS = [];
+  let estimatedEPS = [];
+  let categories = [];
+
+  Object.entries(result["quarterlyEarnings"])
+    .slice(0, 20)
+    .forEach((data) => {
+      categories.push(data[1]["reportedDate"]);
+      earningsStockData.push({
+        estimatedEPS: data[1]["estimatedEPS"],
+        reportedDate: data[1]["reportedDate"],
+        reportedEPS: data[1]["reportedEPS"],
+      });
+      reportedEPS.push(+data[1]["reportedEPS"]);
+      estimatedEPS.push(+data[1]["estimatedEPS"]);
+    });
+
+  earningsStockChart.updateSeries([
+    {
+      name: "Reported EPS of " + stock.toUpperCase(),
+      data: reportedEPS,
+    },
+    { name: "Estimated EPS of " + stock.toUpperCase(), data: estimatedEPS },
+  ]);
+  earningsStockChart.updateOptions({
+    title: {
+      ...earningsOptions.title,
+      text: `${stock.toUpperCase()} Earnings, Revenues Date & History`,
+    },
+    xaxis: {
+      ...earningsOptions.xaxis,
+      categories,
+    },
+  });
+}
+
+// write a function for axios to get url
 function fetchResults(url) {
   return axios
     .get(url)
@@ -440,17 +545,20 @@ function fetchResults(url) {
 // toggle between different chart
 function showCurrentTab() {
   if (currentTab == "analysis") {
-    analysisStockChartDiv.style.display = "block";
+    analysisStockChartAreaDiv.style.display = "block";
+    analysisStockChartLineDiv.style.display = "block";
     analysisTimeOptionsDiv.style.display = "block";
     earningsStockChartDiv.style.display = "none";
     financialsStockChartDiv.style.display = "none";
   } else if (currentTab == "earnings") {
-    analysisStockChartDiv.style.display = "none";
+    analysisStockChartAreaDiv.style.display = "none";
+    analysisStockChartLineDiv.style.display = "none";
     analysisTimeOptionsDiv.style.display = "none";
     earningsStockChartDiv.style.display = "block";
     financialsStockChartDiv.style.display = "none";
   } else if (currentTab == "financials") {
-    analysisStockChartDiv.style.display = "none";
+    analysisStockChartAreaDiv.style.display = "none";
+    analysisStockChartLineDiv.style.display = "none";
     analysisTimeOptionsDiv.style.display = "none";
     earningsStockChartDiv.style.display = "none";
     financialsStockChartDiv.style.display = "block";

@@ -71,24 +71,29 @@
       <!-- home page -->
       <div id="home-background">
         <!-- search bar -->
-        <div class="search-overlay" style="margin-top: 56px">
-          <form class="searchContainer position-relative" id="searchForm">
-            <input
-              type="text"
-              id="stockSearch"
-              class="position-absolute top-50 start-50 translate-middle"
-              placeholder="Search for symbols of companies"
-            />
-            <button
-              id="searchButton"
-              type="submit"
-              class="position-absolute top-50 start-50 translate-middle"
-              style="margin-left: 70px"
+        <h1 class="overall">
+          <span class="fixed-text">Big Financial Data For </span>
+          <div class="inner-text">
+            <span class="inner-span" id="custom-text"
+              >Smart Portfolio Management</span
             >
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
+          </div>
+        </h1>
+        <form class="searchContainer position-relative" id="searchForm">
+          <input
+            type="text"
+            id="stockSearch"
+            class="stock-search"
+            placeholder="Search for symbols"
+          />
+          <button
+            id="searchButton"
+            type="submit"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
         <!-- webpage footer -->
         <footer class="webFooter fixed-bottom bg-dark" class="container-fluid">
           <div class="row pt-3" style="margin-right: 0px; margin-top: 30px">
