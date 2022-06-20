@@ -136,23 +136,28 @@
             </div>
             <!-- subscribe bar -->
             <div class="col-4 offset-1">
-              <form>
-                <h5>NEWSLETTER SUBSCRIPTION</h5>
-                <p class="footText">
-                  Monthly digest of whats new and exciting from us.
-                </p>
-                <div class="subBlock w-100 gap-2" style="padding-right: 20px">
-                  <input
-                    id="newsletter1"
-                    type="text"
-                    class="form-control"
-                    placeholder="Email Address"
-                  />
-                  <button class="btn btn-primary btnSub" type="button">
-                    SIGN UP
-                  </button>
+              <div>
+                <ul id="errors" style="display:none"></ul>
+                <h5>Register an Account</h5>
+                <div class="row2">
+                    <input type="text" id="txtEmail" style="padding-right: 20px" placeholder="Enter your email address"/>
+                    <div class="error" id="txtEmailError"></div>
                 </div>
-              </form>
+        
+                <div class="row2">
+                    <input type="password" id="txtPassword" style="padding-right: 20px" placeholder="Enter your password"/>
+                    <div class="error" id="txtPasswordError"></div>
+                </div>
+                <div class="row2">
+                    <input type="checkbox" value="agree" id="agree"/>
+                    <label class="agree" for="agree"> I agree to the terms and permission </label>
+                    <div class="error" id="txtConditonError"></div>
+                </div>
+        
+                <button class="btn btn-primary btnSub mb-2" type="button">
+                  Submit
+                </button>
+              </div>
             </div>
             <!-- copyright -->
             <div class="col-4 offset-1 copyrightText">

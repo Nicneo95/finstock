@@ -268,6 +268,10 @@ a:hover {
   color: #929292;
 }
 
+.agree {
+  color:#929292;
+}
+
 /* subscribe button */
 .btn-primary {
   color: #f1f5f6;
@@ -282,6 +286,19 @@ a:hover {
   color: #f1f5f6;
   background-color: #313946;
   border-color: #313946;
+}
+
+.row2 {
+  padding: 0.2em;
+  margin: 0.2em;
+}
+
+div.error {
+  color: red;
+}
+
+#agree {
+  align-items: left;
 }
 
 /* ---------------stock-analysis page------------------ */

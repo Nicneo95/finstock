@@ -1,13 +1,3 @@
-// let ausContainerDiv = document.querySelector("#australiaMap");
-// let canContainerDiv = document.querySelector("#canadaMap");
-// let chiContainerDiv = document.querySelector("#chinaMap");
-// let ireContainerDiv = document.querySelector("#irelandMap");
-// let japContainerDiv = document.querySelector("#japanMap");
-// let sinContainerDiv = document.querySelector("#singaporeMap");
-// let ukContainerDiv = document.querySelector("#unitedkingdomMap");
-// let usContainerDiv = document.querySelector("#unitedstateMap");
-// let worldContainerDiv = document.querySelector("#worldMap");
-
 let containerDiv = document.querySelector(".treeMap")
 
 // select all the tree chart button
@@ -28,50 +18,50 @@ australiaBtn.addEventListener("click", async function (e) {
     await new tableau.Viz(containerDiv, url)
 
 });
-canadaBtn.addEventListener("click", function (e) {
+canadaBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/CanadaTreemap/CanadaTreemap?:language=en-US&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 
 });
-irelandBtn.addEventListener("click", function (e) {
+irelandBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/IrelandTreemap/IrelandTreemap?:language=en-US&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 });
-japanBtn.addEventListener("click", function (e) {
+japanBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/JapanTreemap/JapanTreemap?:language=en-US&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 
 });
-singaporeBtn.addEventListener("click", function (e) {
+singaporeBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/SingaporeTreemap/SingaporeTreemap?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 });
-unitedkingdomBtn.addEventListener("click", function (e) {
+unitedkingdomBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/UnitedKingdomTreemap/UnitedKingdomTreemap?:language=en-US&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 
 });
-unitedstateBtn.addEventListener("click", function (e) {
+unitedstateBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/UnitedStateTreemap/UnitedStateTreemap?:language=en-US&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 
 });
-worldBtn.addEventListener("click", function (e) {
+worldBtn.addEventListener("click", async function (e) {
 
     let url = "https://public.tableau.com/views/WorldTreemap/WorldTreemap?:language=en-US&:display_count=n&:origin=viz_share_link";
 
-    new tableau.Viz(containerDiv, url)
+    await new tableau.Viz(containerDiv, url)
 
 })
