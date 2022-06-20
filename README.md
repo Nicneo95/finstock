@@ -1,6 +1,6 @@
 # finstock
 # URL to live website
-[title](https://finstock.netlify.app)
+[https://finstock.netlify.app](https://finstock.netlify.app)
 # Summary
 ###  Stock Market Research and tools
 This is an educational website meant to provide stock market research and analyst for users to make their own judgement call.
