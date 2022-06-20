@@ -154,5 +154,8 @@ To deploy, fork this code, link your Github account with netlify, and make this 
 - Axios
 - Tableau
 - Tim Wood, Iskren Chernev, Moment.js 
+<<<<<<< HEAD
 - boon siang tgc batch 16
 - Ace
+=======
+>>>>>>> 5bdb08bd23127fff4b198a6347d3f0e59697d808
