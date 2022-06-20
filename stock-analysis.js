@@ -193,12 +193,12 @@ let earningsOptions = {
   tooltip: {
     custom: function ({ series, seriesIndex, dataPointIndex, w }) {
       return `<div class="arrow_box">
-        <h5>${`Q${moment(earningsStockData[dataPointIndex].reportedDate)
+        <p>${`Q${moment(earningsStockData[dataPointIndex].reportedDate)
           .utc()
           .quarter()} ${moment(
           earningsStockData[dataPointIndex].reportedDate
         ).format("DD MMM YYYY")}`}
-        </h5>
+        </p>
         <p>Estimated EPS: ${earningsStockData[dataPointIndex].estimatedEPS}</p>
         <p>Reported EPS: ${earningsStockData[dataPointIndex].reportedDate}</p>
         </div>`;
