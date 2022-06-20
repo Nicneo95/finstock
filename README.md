@@ -114,7 +114,7 @@ Charts
 | ------------- | ------------- | ------------- | ------------- |
 |  | In home.html | In home.html | In home.html |
 |  | Prerequisite: The user is at search bar of the home page |  |  |
-| 1 | Able to search for ticker symbol of company | 1) Enter the ticker symbol into the textbox as aapl <br/> 2) Click the find icon or enter | Page will be redirect to stock-analysis.html <br/> <ul> <li> Company information should be display on side bar </li> <li> Default 1 day synchronise chart should load <li/> |
+| 1 | Able to search for ticker symbol of company | 1) Enter the ticker symbol into the textbox as aapl <br/> 2) Click the find icon or enter | Page will be redirect to stock-analysis.html <br/> <ul> <li> Company information should be display on side bar </li> <li> Default 1 day synchronise chart should load |
 |  | In stock-analysis.html | In stock-analysis.html | In stock-analysis.html |
 | 2 | Company earning and revenues chart should render | 1) Click on earning button at side bar | Expected to see reported and estimated EPS bar chart |
 | 3 | Company debt to assets chart should render | 1) Click on financials button at side bar | Expected to see assets and liabilities bar chart with Debt to Assets show as line graph |
