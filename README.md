@@ -1,5 +1,5 @@
 # finstock
-<img src="/image/finstock.png" style="display: block">
+<img src="/images/finstock.png" style="display: block">
 # URL to live website
 [https://finstock.netlify.app](https://finstock.netlify.app)
 # Summary
