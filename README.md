@@ -1,6 +1,8 @@
 # finstock
 <img src="/images/finstock.png" style="display: block">
 
+>Note: This is a bootcamp project focusing on fetching data from API and displaying using vanilla Javascript
+
 # URL to live website
 [https://finstock.netlify.app](https://finstock.netlify.app)
 # Summary
